@@ -2,8 +2,10 @@ plugins {
     alias(libs.plugins.android.application)
 }
 
+import org.gradle.api.tasks.compile.JavaCompile
+
 android {
-    namespace 'com.zsk.inssslbypass'
+    namespace 'com.fuck.igHook'
     compileSdk 34
 
     defaultConfig {
@@ -28,8 +30,14 @@ android {
     }
 }
 
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+}
+
 dependencies {
     compileOnly("de.robv.android.xposed:api:82")
+    implementation libs.play.integrity
+    implementation libs.nano.httpd
     implementation libs.appcompat
     implementation libs.material
     implementation libs.activity
